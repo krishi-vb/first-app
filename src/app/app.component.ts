@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'first-app';
+
+  @Output()
+  toggleBtnStatus: boolean;
+
+  onClick() {
+    this.toggleBtnStatus = false;
+  }
 }

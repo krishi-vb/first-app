@@ -2,9 +2,15 @@
 
 <app-servers></app-servers>
 
-<app-warning-alert></app-warning-alert>
-
-<app-success-alert></app-success-alert>
+<div class="d-flex">
+  <app-success-alert [btnStatus]="toggleBtnStatus"></app-success-alert>
+  <app-warning-alert [btnStatus]="toggleBtnStatus"></app-warning-alert>
+  <div>
+    <button (click)="onClick()" class="btn btn-primary" style="margin: 1rem">
+      Enable Success/Warning Btn
+    </button>
+  </div>
+</div>
 
 <br />
 <br />

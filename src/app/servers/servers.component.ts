@@ -8,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class ServersComponent implements OnInit {
   allowNewServer: boolean;
   timer: number;
+  serverCreationStatus = 'No new servers created';
+  serverName = 'testServer';
 
   constructor() {
     this.resetCountdown();
@@ -31,10 +33,16 @@ export class ServersComponent implements OnInit {
 
   onClick() {
     console.log('add server clicked');
+    this.serverCreationStatus =
+      'New server created.' + ` Server name is: ${this.serverName}`;
     this.resetCountdown();
   }
 
   get isAddServerAllowed() {
     return this.allowNewServer;
+  }
+
+  onUpdateServerName(event: Event) {
+    this.serverName = (<HTMLInputElement>event.target).value;
   }
 }

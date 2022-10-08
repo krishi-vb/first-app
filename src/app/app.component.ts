@@ -7,11 +7,20 @@ import { Component, Output } from '@angular/core';
 })
 export class AppComponent {
   title = 'first-app';
+  username: string = '';
 
   @Output()
   toggleBtnStatus: boolean;
 
   onClick() {
     this.toggleBtnStatus = false;
+  }
+
+  get isUsernameNotEmptyString() {
+    return this.username.length > 0;
+  }
+
+  resetUsername() {
+    this.username = '';
   }
 }

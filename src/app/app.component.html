@@ -1,7 +1,10 @@
 <p>I'm App Component</p>
 
+<hr />
+
 <app-servers></app-servers>
 
+<p class="heading">first assignment: success and warning components</p>
 <div class="d-flex">
   <app-success-alert [btnStatus]="toggleBtnStatus"></app-success-alert>
   <app-warning-alert [btnStatus]="toggleBtnStatus"></app-warning-alert>
@@ -13,14 +16,9 @@
 </div>
 
 <br />
-<br />
-
 <hr />
 
-<br />
-<br />
-
-<div style="display: flex">
+<!-- <div style="display: flex">
   <span style="margin-right: 1rem; max-width: 10rem; display: inline-block"
     >Test [(ngModel)] by typing stuff here and see it render below</span
   >
@@ -31,4 +29,20 @@
 
 <div style="margin-top: 1rem">
   <span style="background-color: yellow">{{ title }}</span>
+</div> -->
+
+<div style="margin: 1rem">
+  <p class="heading">second assignment: practice data binding</p>
+
+  <input type="text" [(ngModel)]="username" placeholder="input username here" />
+
+  <p>username is: {{ username }}</p>
+
+  <button
+    class="btn btn-warning"
+    [disabled]="!isUsernameNotEmptyString"
+    (click)="resetUsername()"
+  >
+    Reset Username
+  </button>
 </div>

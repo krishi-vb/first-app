@@ -1,3 +1,23 @@
+<div class="d-flex align-items-center">
+  <label>Type server name here: </label>
+  <!-- <input
+    type="text"
+    class="form-control"
+    (input)="onUpdateServerName($event)"
+    style="margin: 1rem; width: 30%"
+  /> -->
+  <input
+    type="text"
+    class="form-control"
+    [(ngModel)]="serverName"
+    style="margin: 1rem; width: 30%"
+  />
+</div>
+<div>
+  Server Name: <span>{{ serverName }}</span>
+</div>
+<br />
+
 <button
   class="btn btn-primary"
   [disabled]="!isAddServerAllowed"
@@ -14,5 +34,7 @@
     <p [innerText]="allowNewServer ? 'enabled' : 'disabled'"></p>
   </span>
 </div>
+
+<div style="margin-left: 1rem">{{ serverCreationStatus }}</div>
 
 <app-server></app-server>

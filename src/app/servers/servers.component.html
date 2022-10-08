@@ -1,1 +1,18 @@
+<button
+  class="btn btn-primary"
+  [disabled]="!isAddServerAllowed"
+  (click)="onClick()"
+>
+  Add Server
+</button>
+
+<span *ngIf="!isAddServerAllowed">Button enabling in {{ timer }} seconds</span>
+
+<div style="margin-left: 1rem" class="d-flex">
+  Add Server btn is currently &nbsp;
+  <span>
+    <p [innerText]="allowNewServer ? 'enabled' : 'disabled'"></p>
+  </span>
+</div>
+
 <app-server></app-server>

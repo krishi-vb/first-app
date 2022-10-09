@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
+enum ServerStatus {
+  ONLINE = 'online',
+  OFFLINE = 'offline',
+}
+
 @Component({
   selector: 'app-server',
   templateUrl: './server.component.html',
@@ -10,7 +15,8 @@ export class ServerComponent implements OnInit {
   serverStatus: string;
 
   constructor() {
-    this.serverStatus = Math.random() > 0.5 ? 'online' : 'offline';
+    this.serverStatus =
+      Math.random() > 0.5 ? ServerStatus.ONLINE : ServerStatus.OFFLINE;
   }
 
   ngOnInit(): void {}
@@ -20,7 +26,7 @@ export class ServerComponent implements OnInit {
   }
 
   getBgColor() {
-    if (this.serverStatus === 'online') {
+    if (this.serverStatus === ServerStatus.ONLINE) {
       return 'lightgreen';
     } else return 'crimson';
   }

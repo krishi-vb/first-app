@@ -2,3 +2,7 @@ p.heading {
   color: blue;
   font-weight: 600;
 }
+
+.item-above-five {
+  color: white;
+}

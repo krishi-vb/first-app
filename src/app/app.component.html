@@ -50,3 +50,28 @@
     Reset Username
   </button>
 </div>
+
+<br />
+<hr />
+
+<div style="margin: 1rem">
+  <p class="heading">third assignment: practice directives</p>
+
+  <button class="btn btn-primary" (click)="onRequestDetailsClick($event)">
+    Display Details
+  </button>
+
+  <span class="mx-2" *ngIf="showDetails">
+    Requested details: {{ userDetails | json }}
+  </span>
+
+  <div
+    class="mt-2 px-3"
+    style="width: fit-content; box-sizing: border-box"
+    *ngFor="let log of clicksLogArray"
+    [ngStyle]="{ backgroundColor: checkCounter(log.counter) }"
+    [ngClass]="{ 'item-above-five': log.counter > 4 }"
+  >
+    {{ log.data }}
+  </div>
+</div>

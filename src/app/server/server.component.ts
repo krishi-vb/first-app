@@ -13,6 +13,7 @@ enum ServerStatus {
 export class ServerComponent implements OnInit {
   serverId: number = 5;
   serverStatus: string;
+  serverOnline = ServerStatus.ONLINE;
 
   constructor() {
     this.serverStatus =

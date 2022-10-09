@@ -2,7 +2,10 @@
 
 <p>This is the Server Component</p>
 
-<span [ngStyle]="{ backgroundColor: getBgColor() }">
+<span
+  [ngStyle]="{ backgroundColor: getBgColor() }"
+  [ngClass]="{ online: serverStatus === serverOnline }"
+>
   The status of {{ "Server" }} {{ serverId }} is {{ getServerStatus() }}
 </span>
 

@@ -68,10 +68,14 @@
   <div
     class="mt-2 px-3"
     style="width: fit-content; box-sizing: border-box"
-    *ngFor="let log of clicksLogArray"
-    [ngStyle]="{ backgroundColor: checkCounter(log.counter) }"
-    [ngClass]="{ 'item-above-five': log.counter > 4 }"
+    *ngFor="let log of clicksLogArray; let i = index"
+    [ngStyle]="{ backgroundColor: i >= 4 ? 'blue' : 'transparent' }"
+    [ngClass]="{ 'item-above-five': i >= 4 }"
   >
     {{ log.data }}
   </div>
+
+  <!-- below lines are made simpler by using index directly. -->
+  <!-- [ngStyle]="{ backgroundColor: checkCounter(log.counter) }" -->
+  <!-- [ngClass]="{ 'item-above-five': log.counter > 4 }" -->
 </div>

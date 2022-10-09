@@ -8,7 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class ServersComponent implements OnInit {
   allowNewServer: boolean;
   timer: number;
-  serverCreationStatus = 'No new servers created';
+  servers = ['server1', 'server2'];
+  serverCreationStatus = `No new servers created. ${this.servers.length} server(s) are currently active: ${this.servers}.`;
   serverName = 'testServer';
 
   constructor() {
@@ -31,10 +32,17 @@ export class ServersComponent implements OnInit {
     }, 1000);
   }
 
-  onClick() {
+  onCreateServer() {
     console.log('add server clicked');
-    this.serverCreationStatus =
-      'New server created.' + ` Server name is: ${this.serverName}`;
+    if (this.servers.includes(this.serverName)) {
+      alert(
+        'A server with this name already exists! Please choose a new server name.'
+      );
+    } else {
+      this.servers.push(this.serverName);
+      this.serverCreationStatus =
+        'New server created.' + ` Server name is: ${this.serverName}`;
+    }
     this.resetCountdown();
   }
 

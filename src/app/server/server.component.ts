@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 enum ServerStatus {
   ONLINE = 'online',
@@ -14,6 +14,9 @@ export class ServerComponent implements OnInit {
   serverId: number = 5;
   serverStatus: string;
   serverOnline = ServerStatus.ONLINE;
+
+  @Input()
+  serverName: string;
 
   constructor() {
     this.serverStatus =

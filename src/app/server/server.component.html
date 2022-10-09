@@ -1,12 +1,11 @@
-<hr />
+<!-- 
+<p>This is the Server Component</p> -->
 
-<p>This is the Server Component</p>
-
-<span
+<div
+  style="margin: 1rem; width: max-content"
   [ngStyle]="{ backgroundColor: getBgColor() }"
   [ngClass]="{ online: serverStatus === serverOnline }"
 >
-  The status of {{ "Server" }} {{ serverId }} is {{ getServerStatus() }}
-</span>
-
-<hr />
+  <!-- The status of {{ "Server" }} {{ serverId }} is {{ getServerStatus() }} -->
+  The status of {{ serverName }} is {{ getServerStatus() }}
+</div>

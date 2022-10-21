@@ -18,19 +18,22 @@ export class ServerComponent implements OnInit {
   @Input()
   serverName: string;
 
+  @Input()
+  server: any;
+
   constructor() {
-    this.serverStatus =
-      Math.random() > 0.5 ? ServerStatus.ONLINE : ServerStatus.OFFLINE;
+    // this.serverStatus =
+    //   Math.random() > 0.5 ? ServerStatus.ONLINE : ServerStatus.OFFLINE;
   }
 
   ngOnInit(): void {}
 
-  getServerStatus() {
-    return this.serverStatus;
-  }
+  // getServerStatus() {
+  //   return this.serverStatus;
+  // }
 
   getBgColor() {
-    if (this.serverStatus === ServerStatus.ONLINE) {
+    if (this.server.status === ServerStatus.ONLINE) {
       return 'lightgreen';
     } else return 'crimson';
   }

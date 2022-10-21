@@ -4,8 +4,8 @@
 <div
   style="margin: 1rem; width: max-content"
   [ngStyle]="{ backgroundColor: getBgColor() }"
-  [ngClass]="{ online: serverStatus === serverOnline }"
+  [ngClass]="{ online: server.status === serverOnline }"
 >
   <!-- The status of {{ "Server" }} {{ serverId }} is {{ getServerStatus() }} -->
-  The status of {{ serverName }} is {{ getServerStatus() }}
+  The status of {{ server.name }} is {{ server.status }}
 </div>

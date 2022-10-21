@@ -8,6 +8,7 @@ import { WarningAlertComponent } from './warning-alert/warning-alert.component';
 import { SuccessAlertComponent } from './success-alert/success-alert.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FilterPipe } from './pipes/filter.pipe';
+import { ReversePipe } from './pipes/reverse.pipe';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { FilterPipe } from './pipes/filter.pipe';
     WarningAlertComponent,
     SuccessAlertComponent,
     FilterPipe,
+    ReversePipe,
   ],
   imports: [BrowserModule, FormsModule, BrowserAnimationsModule],
   providers: [],

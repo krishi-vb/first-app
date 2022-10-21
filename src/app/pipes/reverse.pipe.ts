@@ -1,13 +1,17 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
-@Pipe({ name: 'reverse' })
+@Pipe({ name: 'reverse', pure: false })
 export class ReversePipe implements PipeTransform {
   transform(value: any, ...args: any[]) {
-    if (value === '') {
+    if (!value) {
       return value;
-    }
+    } else {
+      let newStr: string = '';
 
-    if (value.length % 2 === 0) {
+      for (let i = value.length - 1; i >= 0; i--) {
+        newStr += value[i];
+      }
+      return newStr;
     }
   }
 }

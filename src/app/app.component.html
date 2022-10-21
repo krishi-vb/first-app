@@ -79,3 +79,21 @@
   <!-- [ngStyle]="{ backgroundColor: checkCounter(log.counter) }" -->
   <!-- [ngClass]="{ 'item-above-five': log.counter > 4 }" -->
 </div>
+
+<hr />
+
+<div style="margin: 1rem">
+  <p class="heading">Custom Pipe to reverse and entered string</p>
+
+  <input
+    type="text"
+    placeholder="Enter string to be reversed..."
+    style="display: block; width: 30%"
+    [(ngModel)]="reverseName"
+  />
+
+  <div style="margin-top: 1rem">
+    <span>Reversed string:</span>
+    <span style="margin: 1rem" [innerText]="reverseName | reverse"></span>
+  </div>
+</div>

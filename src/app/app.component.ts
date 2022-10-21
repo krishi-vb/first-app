@@ -12,6 +12,7 @@ export class AppComponent {
   _showDetails = false;
   counter = 0;
   clicksLogArray: unknown[] = [];
+  reverseName: string = '';
 
   @Output()
   toggleBtnStatus: boolean;

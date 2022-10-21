@@ -1,5 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 
+export enum ServerStatus {
+  ONLINE = 'online',
+  OFFLINE = 'offline',
+}
+
+export interface Server {
+  name: string;
+  status: ServerStatus;
+}
+
 @Component({
   selector: 'app-servers',
   templateUrl: './servers.component.html',
@@ -9,14 +19,14 @@ export class ServersComponent implements OnInit {
   allowNewServer: boolean;
   timer: number;
   // servers = ['server1', 'server2'];
-  servers = [
-    { name: 'server1', status: 'offline' },
-    { name: 'server2', status: 'online' },
+  servers: Server[] = [
+    { name: 'server1', status: this.getServerStatus() },
+    { name: 'server2', status: this.getServerStatus() },
   ];
 
   serverCreationStatus = `No new servers created. ${
     this.servers.length
-  } server(s) are currently active: ${this.getAllServers()}.`;
+  } server(s) are currently active: ${this.getAllServerNames()}.`;
   serverName = 'testServer';
   filterTerm: string;
 
@@ -41,31 +51,28 @@ export class ServersComponent implements OnInit {
   }
 
   onCreateServer() {
-    console.log('add server clicked');
-    // if (this.servers.includes(this.serverName)) {
-    //   alert(
-    //     'A server with this name already exists! Please choose a new server name.'
-    //   );
-    // } else {
-    //   let serverStatus = this.getServerStatus();
-    //   this.servers.push({ name: this.serverName, status: serverStatus });
-    //   this.serverCreationStatus =
-    //     'New server created.' + ` Server name is: ${this.serverName}`;
-    // }
+    let checkIfServerExists = () => {
+      return this.servers.find((server) => server.name === this.serverName);
+    };
 
-    let serverStatus = this.getServerStatus();
-    this.servers.push({ name: this.serverName, status: serverStatus });
-    this.serverCreationStatus =
-      'New server created.' + ` Server name is: ${this.serverName}`;
-
+    if (checkIfServerExists()) {
+      alert(
+        'A server with this name already exists! Please choose a new server name.'
+      );
+    } else {
+      let serverStatus = this.getServerStatus();
+      this.servers.push({ name: this.serverName, status: serverStatus });
+      this.serverCreationStatus =
+        'New server created.' + ` Server name is: ${this.serverName}`;
+    }
     this.resetCountdown();
   }
 
   getServerStatus() {
-    return Math.random() > 0 ? 'online' : 'offline';
+    return Math.random() > 0.5 ? ServerStatus.ONLINE : ServerStatus.OFFLINE;
   }
 
-  getAllServers() {
+  getAllServerNames() {
     let arr = [];
     this.servers.forEach((server) => {
       arr.push(` ${server.name}`);

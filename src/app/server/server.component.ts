@@ -1,9 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-
-enum ServerStatus {
-  ONLINE = 'online',
-  OFFLINE = 'offline',
-}
+import { Server, ServerStatus } from '../servers/servers.component';
 
 @Component({
   selector: 'app-server',
@@ -15,11 +11,11 @@ export class ServerComponent implements OnInit {
   serverStatus: string;
   serverOnline = ServerStatus.ONLINE;
 
-  @Input()
-  serverName: string;
+  // @Input()
+  // serverName: string;
 
   @Input()
-  server: any;
+  server: Server;
 
   constructor() {
     // this.serverStatus =
@@ -35,6 +31,7 @@ export class ServerComponent implements OnInit {
   getBgColor() {
     if (this.server.status === ServerStatus.ONLINE) {
       return 'lightgreen';
-    } else return 'crimson';
+    }
+    return 'crimson';
   }
 }

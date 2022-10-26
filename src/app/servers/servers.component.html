@@ -25,8 +25,8 @@
         <div style="margin-top: 0.5rem">
           <span
             style="background-color: orange; padding: 0.3rem"
-            *ngIf="serverNameFromTemplateRef"
-            >{{ serverNameFromTemplateRef }}</span
+            *ngIf="serverNameFromViewChild"
+            >{{ serverNameFromViewChild }}</span
           >
         </div>
       </div>
@@ -44,12 +44,16 @@
       </div>
     </div>
 
+    <div style="margin-left: 1rem; margin-right: 1rem; background-color: beige">
+      Below btn text was generated via content projection
+    </div>
+
     <button
       class="btn btn-primary"
       [disabled]="!isAddServerAllowed"
       (click)="onCreateServer(ServerNameInputContent)"
     >
-      Add Server
+      <ng-content></ng-content>
     </button>
 
     <span *ngIf="!isAddServerAllowed"

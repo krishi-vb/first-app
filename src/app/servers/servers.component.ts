@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 export enum ServerStatus {
   ONLINE = 'online',
@@ -29,7 +29,11 @@ export class ServersComponent implements OnInit {
   } server(s) are currently active: ${this.getAllServerNames()}.`;
   serverName = 'testServer';
   filterTerm: string;
-  serverNameFromTemplateRef: string;
+  // serverNameFromTemplateRef: string;
+  serverNameFromViewChild: string;
+
+  @ViewChild('ServerNameInputContent')
+  ServerNameInputContent: ElementRef;
 
   constructor() {
     this.resetCountdown();
@@ -52,7 +56,9 @@ export class ServersComponent implements OnInit {
   }
 
   onCreateServer(ServerNameInputContent: HTMLInputElement) {
-    this.serverNameFromTemplateRef = ServerNameInputContent.value;
+    // this.serverNameFromTemplateRef = ServerNameInputContent.value;
+    this.serverNameFromViewChild =
+      this.ServerNameInputContent.nativeElement.value;
 
     let checkIfServerExists = () => {
       return this.servers.find((server) => server.name === this.serverName);

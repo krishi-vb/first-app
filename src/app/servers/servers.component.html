@@ -15,14 +15,39 @@
           class="form-control"
           [(ngModel)]="serverName"
           style="margin: 1rem; width: 30%"
+          #tmplRefServerName
         />
+      </div>
+      <div style="margin: 1rem; display: flex">
+        <div style="max-width: 50%">
+          Server Name from template ref via .ts file:
+        </div>
+        <div style="margin-top: 0.5rem">
+          <span
+            style="background-color: orange; padding: 0.3rem"
+            *ngIf="serverNameFromTmplRef"
+            >{{ serverNameFromTmplRef }}</span
+          >
+        </div>
+      </div>
+      <div style="margin: 1rem; display: flex">
+        <div style="max-width: 50%">
+          Server Name from template ref directly:
+        </div>
+        <div style="margin-top: 0.5rem">
+          <span
+            style="background-color: orange; padding: 0.3rem"
+            *ngIf="tmplRefServerName"
+            >{{ tmplRefServerName.value }}</span
+          >
+        </div>
       </div>
     </div>
 
     <button
       class="btn btn-primary"
       [disabled]="!isAddServerAllowed"
-      (click)="onCreateServer()"
+      (click)="onCreateServer(tmplRefServerName)"
     >
       Add Server
     </button>

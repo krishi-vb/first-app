@@ -29,6 +29,7 @@ export class ServersComponent implements OnInit {
   } server(s) are currently active: ${this.getAllServerNames()}.`;
   serverName = 'testServer';
   filterTerm: string;
+  serverNameFromTmplRef: string;
 
   constructor() {
     this.resetCountdown();
@@ -50,7 +51,9 @@ export class ServersComponent implements OnInit {
     }, 1000);
   }
 
-  onCreateServer() {
+  onCreateServer(tmplRefServerName: HTMLInputElement) {
+    this.serverNameFromTmplRef = tmplRefServerName.value;
+
     let checkIfServerExists = () => {
       return this.servers.find((server) => server.name === this.serverName);
     };

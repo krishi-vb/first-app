@@ -15,7 +15,7 @@
           class="form-control"
           [(ngModel)]="serverName"
           style="margin: 1rem; width: 30%"
-          #tmplRefServerName
+          #ServerNameInputContent
         />
       </div>
       <div style="margin: 1rem; display: flex">
@@ -25,8 +25,8 @@
         <div style="margin-top: 0.5rem">
           <span
             style="background-color: orange; padding: 0.3rem"
-            *ngIf="serverNameFromTmplRef"
-            >{{ serverNameFromTmplRef }}</span
+            *ngIf="serverNameFromTemplateRef"
+            >{{ serverNameFromTemplateRef }}</span
           >
         </div>
       </div>
@@ -37,8 +37,8 @@
         <div style="margin-top: 0.5rem">
           <span
             style="background-color: orange; padding: 0.3rem"
-            *ngIf="tmplRefServerName"
-            >{{ tmplRefServerName.value }}</span
+            *ngIf="ServerNameInputContent"
+            >{{ ServerNameInputContent.value }}</span
           >
         </div>
       </div>
@@ -47,7 +47,7 @@
     <button
       class="btn btn-primary"
       [disabled]="!isAddServerAllowed"
-      (click)="onCreateServer(tmplRefServerName)"
+      (click)="onCreateServer(ServerNameInputContent)"
     >
       Add Server
     </button>
